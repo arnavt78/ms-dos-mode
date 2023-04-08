@@ -2,14 +2,18 @@ Add-Type -AssemblyName PresentationFramework
 
 # [System.Windows.MessageBox]::EnableVisualStyles()
 
-$about = [System.Windows.MessageBox]::Show("Restarting in Windows mode edits the Registry to allow the Explorer for showing when you log in to the system, instead of the Command Prompt.`n`nWhen in the Explorer, use the Win + X menu to get back into MS-DOS Mode. Again, this edits the Registry.`n`nIf you would like to cancel this operation, please click 'Cancel'. Otherwise, click 'OK'.", "About Restarting in Windows Mode", "OKCancel", "Information", "Cancel")
+$warning = [System.Windows.MessageBox]::Show("Are you sure you want to restart in Windows mode?`n`nPlease save any unsaved work before accepting, as it will reboot the system.", "Confirmation", "YesNo", "Warning", "No")
 
-if ($about -eq "OK") {
-  $warning = [System.Windows.MessageBox]::Show("Are you sure you want to restart in Windows mode?`n`nPlease save any unsaved work before accepting, as it will reboot the system.", "Confirmation", "YesNo", "Warning", "No")
+if ($warning -eq "Yes") {
+  Set-ItemProperty -Path "HKLM:\System\Setup" -Name "CmdLine" -Value ""
+  Set-ItemProperty -Path "HKLM:\System\Setup" -Name "SystemSetupInProgress" -Value "0"
+  Set-ItemProperty -Path "HKLM:\System\Setup" -Name "SetupType" -Value "0"
+  Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System" -Name "EnableCursorSuppression" -Value "1"
+  Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System" -Name "EnableLUA" -Value "1"
+  # Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System" -Name "VerboseStatus" -Value "0"
 
-  if ($warning -eq "Yes") {
-    Set-Itemproperty -path "HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows NT\CurrentVersion\Winlogon" -Name 'Shell' -value "explorer.exe"
+  Write-Host "Windows is ready to restart!"
+  Pause "Press any key to continue . . . "
 
-    Restart-Computer
-  }
+  Restart-Computer
 }
