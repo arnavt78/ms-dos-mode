@@ -53,3 +53,11 @@ To reboot into Windows from MS-DOS mode, follow these steps:
 1.  Assuming you know the location of `win.cmd`, run it from the command prompt by running that file in the respective directory.
 2.  Confirm the prompts and let the system restart.
 3.  After restarting, the Windows GUI should appear!
+
+## Corruption Steps
+
+If Windows gets corrupted because you didn't use `win.cmd` or `reboot.cmd` to get back to Windows to reboot, respectively, you can easily fix it.
+
+1.  Press <kbd>Windows</kbd> + <kbd>R</kbd>, and run `cmd` with administrative privileges by pressing <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd>.
+2.  Navigate to the system root where the files for MS-DOS mode are located.
+3.  Run `win.cmd`, and reboot the system, which should completely fix the issue with no data loss!
