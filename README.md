@@ -21,16 +21,20 @@ Follow these steps to use the MS-DOS mode correctly!
 
 To reboot into MS-DOS mode from Windows, follow these steps:
 
-1.  Copy the following files into your `%SYSTEMROOT%` (by default, this is `C:\Windows`).
+1.  Open a PowerShell window as an administrator, and run the following command if it hasn't already been done on the system.
+    ```
+    > Set-ExectionPolicy RemoteSigned
+    ```
+2.  Copy the following files into your `%SYSTEMROOT%` (by default, this is `C:\Windows`).
     - `dos.cmd` (optional, but recommended)
     - `dos.ps1`
     - `reboot.cmd` (optional, but recommended)
     - `reboot.ps1`
     - `win.cmd` (optional, but recommended)
     - `win.ps1`
-2.  Run the `dos.cmd` file by double-clicking it in Explorer, or running it in the command prompt.
-3.  Read the disclaimer properly, and then press _y_ on both prompts.
-4.  After restarting, a command prompt should appear!
+3.  Run the `dos.cmd` file by double-clicking it in Explorer, or running it in the command prompt.
+4.  Read the disclaimer properly, and then press _y_ on both prompts.
+5.  After restarting, a command prompt should appear!
 
 ### Rebooting back into MS-DOS Mode
 
@@ -42,7 +46,7 @@ To reboot MS-DOS mode back into MS-DOS mode if you need it, follow these steps:
 2.  Confirm the prompts and let the system restart.
 3.  After restarting, the command prompt should appear!
 
-## Rebooting into Windows Mode
+### Rebooting into Windows Mode
 
 To reboot into Windows from MS-DOS mode, follow these steps:
 
