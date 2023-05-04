@@ -8,10 +8,13 @@ This tool only currently supports Windows systems running at least PowerShell 2.
 
 - Windows 11
 - Windows 10
-- Windows 8.x
+- Windows 8.1
+- Windows 8.0
 - Windows 7
+- Windows Vista
+- Windows XP
 
-_(Windows Vista and below have not been tested.)_
+_(Windows 2000/Me and below are not supported as PowerShell 2.0 does not install on those operating systems.)_
 
 ## How to Use
 
@@ -26,11 +29,11 @@ To reboot into MS-DOS mode from Windows, follow these steps:
     > Set-ExectionPolicy RemoteSigned
     ```
 2.  Copy the following files into your `%SYSTEMROOT%` (by default, this is `C:\Windows`).
-    - `dos.cmd` (optional, but recommended)
+    - `dos.cmd`
     - `dos.ps1`
-    - `reboot.cmd` (optional, but recommended)
+    - `reboot.cmd`
     - `reboot.ps1`
-    - `win.cmd` (optional, but recommended)
+    - `win.cmd`
     - `win.ps1`
 3.  Run the `dos.cmd` file by double-clicking it in Explorer, or running it in the command prompt.
 4.  Read the disclaimer properly, and then press _y_ on both prompts.
